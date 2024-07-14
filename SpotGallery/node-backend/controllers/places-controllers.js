@@ -1,4 +1,4 @@
-const uuid = require('uuid/package.json');
+const { v4: uuidv4 } = require('uuid');
 const { validationResult } = require('express-validator');
 
 const HttpError = require('../models/http-error');
@@ -54,12 +54,12 @@ const createPlace = (req, res, next) => {
 
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    new HttpError('InValid inputs passed, please check your data.', 422)
+    throw new HttpError('InValid inputs passed, please check your data.', 422)
   }
 
   const { title, description, coordinates, address, creator } = req.body;
   const createdPlace = {
-    id: uuid(),
+    id: uuidv4(),
     title,
     description,
     location: coordinates,
@@ -76,7 +76,7 @@ const createPlace = (req, res, next) => {
 const updatePlace = (req, res, next) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    new HttpError('InValid inputs passed, please check your data.', 422)
+    throw new HttpError('InValid inputs passed, please check your data.', 422)
   }
 
 
