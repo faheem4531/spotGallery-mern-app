@@ -109,6 +109,14 @@ const Auth = () => {
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (
+            <ImageUpload
+              center
+              id="image"
+              onInput={inputHandler}
+              errorText="Please provide an image."
+            />
+          )}
+          {!isLoginMode && (
             <Input
               element="input"
               id="name"
@@ -117,14 +125,6 @@ const Auth = () => {
               validators={[VALIDATOR_REQUIRE()]}
               errorText="Please enter a name."
               onInput={inputHandler}
-            />
-          )}
-          {!isLoginMode && (
-            <ImageUpload
-              center
-              id="image"
-              onInput={inputHandler}
-              errorText="Please provide an image."
             />
           )}
           <Input
