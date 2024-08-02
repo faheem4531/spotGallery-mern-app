@@ -128,7 +128,7 @@ const updatePlace = async (req, res, next) => {
     return next(error);
   }
 
-  if (place.creator.toString !== req.userData.userId) {
+  if (place.creator.toString() !== req.userData.userId) {
     const error = new HttpError("You are not allow to edit the place", 4001);
 
     return next(error);
@@ -167,6 +167,13 @@ const deletePlace = async (req, res, next) => {
     const error = new HttpError('Could not find place for this id.', 404);
     return next(error);
   }
+
+  if (place.creator.id !== req.userData.userId) {
+    const error = new HttpError("You are not allow to delete the place", 4001);
+
+    return next(error);
+  }
+
 
   const imagePath = place.image
 
