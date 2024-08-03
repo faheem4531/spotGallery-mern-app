@@ -2,7 +2,7 @@
 
 // const HttpError = require('../models/http-error');
 
-// const API_KEY = 'your API';
+// const API_KEY = process.env.GOOGLE_API_MAP;
 
 async function getCoordsForAddress(address) {
   return { //return the dumy cordinates,for real time cordinates need to get the API_KEY which you get after billing google
