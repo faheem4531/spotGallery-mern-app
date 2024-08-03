@@ -1,0 +1,9 @@
+{
+  "env": {
+    "DB_USER": "faheem4531",
+    "DB_PASSWORD": "myPasword123",
+    "DB_NAME": "spotGalery",
+    "GOOGLE_API_MAP": "http://google api key",
+    "JWT_KKEY": "supersecret_dont_share"
+  }
+}
